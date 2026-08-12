@@ -39,9 +39,9 @@ export default function DownloadSection() {
         </p>
 
         {/* Note: Update the href below when the actual APK is available */}
-        <a href="/app-release.apk" download className="btn btn-primary" style={{ width: '100%', padding: '20px' }}>
+        <a href="/Offline%20TikTok%20Player.apk" download className="btn btn-primary" style={{ width: '100%', padding: '20px' }}>
           <Download size={28} />
-          Download APK (v1.0.0)
+          Download APK
         </a>
       </motion.div>
     </section>

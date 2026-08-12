@@ -2,12 +2,12 @@
 
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useTexture, RoundedBox } from '@react-three/drei';
+import { useVideoTexture, RoundedBox } from '@react-three/drei';
 
 export default function PhoneModel() {
   const group = useRef();
   
-  const texture = useTexture('/suleyman_placeholder.png');
+  const texture = useVideoTexture('/Tiktok Player.mp4');
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
