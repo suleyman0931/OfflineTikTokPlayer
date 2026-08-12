@@ -8,12 +8,12 @@ import PhoneModel from './PhoneModel';
 import { Download, Volume2, VolumeX } from 'lucide-react';
 
 export default function HeroSection() {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    // Increase size on mobile screens
-    const handleResize = () => setScale(window.innerWidth < 768 ? 1.4 : 1.1);
+    // Make the model 3x larger as requested
+    const handleResize = () => setScale(window.innerWidth < 768 ? 4.0 : 3.0);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

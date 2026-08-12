@@ -12,7 +12,7 @@ export default function PhoneModel() {
     document.body.style.cursor = hovered ? 'pointer' : 'auto';
   }, [hovered]);
   
-  const texture = useVideoTexture('/tiktok_player.mp4', { muted: true, loop: true, start: true });
+  const texture = useVideoTexture('/tiktok_player.mp4', { muted: false, loop: true, start: true });
 
   const handlePointerDown = () => {
     if (texture.image) {
