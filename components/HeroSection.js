@@ -1,13 +1,33 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, ContactShadows } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import PhoneModel from './PhoneModel';
-import { Download } from 'lucide-react';
+import { Download, Volume2, VolumeX } from 'lucide-react';
 
 export default function HeroSection() {
+  const [isMuted, setIsMuted] = useState(true);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    // Increase size on mobile screens
+    const handleResize = () => setScale(window.innerWidth < 768 ? 1.4 : 1.1);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleSound = () => {
+    const video = document.querySelector('video');
+    if (video) {
+      video.muted = !video.muted;
+      video.play().catch(e => console.log('Autoplay prevented:', e));
+      setIsMuted(video.muted);
+    }
+  };
+
   return (
     <section className="hero-section">
       <motion.div 
@@ -45,13 +65,23 @@ export default function HeroSection() {
           <directionalLight position={[10, 10, 5]} intensity={1.5} />
           <Environment preset="city" />
           <Suspense fallback={null}>
-            <PhoneModel />
+            <group scale={scale}>
+              <PhoneModel />
+            </group>
           </Suspense>
           <ContactShadows position={[0, -2.5, 0]} opacity={0.5} scale={10} blur={2} far={4} />
         </Canvas>
-        <p style={{ textAlign: 'center', marginTop: '10px', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          🖱️ Click the phone to toggle sound
-        </p>
+        
+        <div style={{ textAlign: 'center', marginTop: '20px', position: 'relative', zIndex: 20 }}>
+          <button 
+            onClick={toggleSound}
+            className="btn btn-secondary"
+            style={{ padding: '10px 24px', fontSize: '1rem', background: 'rgba(255,255,255,0.1)' }}
+          >
+            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            {isMuted ? "Unmute Video" : "Mute Video"}
+          </button>
+        </div>
       </motion.div>
     </section>
   );
