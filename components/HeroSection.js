@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Download, Volume2, VolumeX } from 'lucide-react';
 
 export default function HeroSection() {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        <div style={{ position: 'relative', width: '100%', maxWidth: '350px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '4px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '4px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
           <video 
             src="/tiktok_player.mp4" 
             autoPlay 
