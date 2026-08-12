@@ -1,10 +1,7 @@
 "use client";
 
-import React, { Suspense, useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { Environment, ContactShadows } from '@react-three/drei';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import PhoneModel from './PhoneModel';
 import { Download, Volume2, VolumeX } from 'lucide-react';
 
 export default function HeroSection() {
@@ -12,8 +9,8 @@ export default function HeroSection() {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    // Make the model 3x larger as requested
-    const handleResize = () => setScale(window.innerWidth < 768 ? 4.0 : 3.0);
+    // Just handling resize if needed for other UI parts
+    const handleResize = () => setScale(window.innerWidth < 768 ? 1.2 : 1);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -60,17 +57,17 @@ export default function HeroSection() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1.5} />
-          <Environment preset="city" />
-          <Suspense fallback={null}>
-            <group scale={scale}>
-              <PhoneModel />
-            </group>
-          </Suspense>
-          <ContactShadows position={[0, -2.5, 0]} opacity={0.5} scale={10} blur={2} far={4} />
-        </Canvas>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '350px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '4px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
+          <video 
+            src="/tiktok_player.mp4" 
+            autoPlay 
+            loop 
+            muted={isMuted}
+            playsInline
+            controls={false}
+            style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}
+          />
+        </div>
         
         <div style={{ textAlign: 'center', marginTop: '20px', position: 'relative', zIndex: 20 }}>
           <button 
