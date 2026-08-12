@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import DownloadSection from '../components/DownloadSection';
+import ServicesSection from '../components/ServicesSection';
 import { Play, Smartphone, WifiOff } from 'lucide-react';
 
 export default function Home() {
@@ -33,6 +34,8 @@ export default function Home() {
       </section>
 
       <DownloadSection />
+
+      <ServicesSection />
       
       <footer className="glass" style={{ padding: '30px', textAlign: 'center', marginTop: 'auto', borderRadius: '0', borderLeft: 'none', borderRight: 'none', borderBottom: 'none' }}>
         <p className="text-muted" style={{ color: 'var(--text-muted)' }}>© {new Date().getFullYear()} Offline TikTok Player. All rights reserved.</p>

@@ -7,7 +7,7 @@ import { useVideoTexture, RoundedBox } from '@react-three/drei';
 export default function PhoneModel() {
   const group = useRef();
   
-  const texture = useVideoTexture('/Tiktok Player.mp4');
+  const texture = useVideoTexture('/tiktok_player.mp4', { muted: true, loop: true, start: true });
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();

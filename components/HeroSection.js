@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, ContactShadows } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -44,7 +44,9 @@ export default function HeroSection() {
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} />
           <Environment preset="city" />
-          <PhoneModel />
+          <Suspense fallback={null}>
+            <PhoneModel />
+          </Suspense>
           <ContactShadows position={[0, -2.5, 0]} opacity={0.5} scale={10} blur={2} far={4} />
         </Canvas>
       </motion.div>
