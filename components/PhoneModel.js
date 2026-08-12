@@ -1,13 +1,24 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useVideoTexture, RoundedBox } from '@react-three/drei';
 
 export default function PhoneModel() {
   const group = useRef();
+  const [hovered, setHovered] = useState(false);
+  
+  useEffect(() => {
+    document.body.style.cursor = hovered ? 'pointer' : 'auto';
+  }, [hovered]);
   
   const texture = useVideoTexture('/tiktok_player.mp4', { muted: true, loop: true, start: true });
+
+  const handlePointerDown = () => {
+    if (texture.image) {
+      texture.image.muted = !texture.image.muted;
+    }
+  };
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -17,7 +28,13 @@ export default function PhoneModel() {
   });
 
   return (
-    <group ref={group} dispose={null}>
+    <group 
+      ref={group} 
+      dispose={null} 
+      onPointerDown={handlePointerDown}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
       {/* Phone Body */}
       <RoundedBox args={[2.2, 4.5, 0.2]} radius={0.1} smoothness={4}>
         <meshStandardMaterial color="#1a1a1a" roughness={0.1} metalness={0.8} />

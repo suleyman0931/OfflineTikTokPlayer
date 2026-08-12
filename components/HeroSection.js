@@ -49,6 +49,9 @@ export default function HeroSection() {
           </Suspense>
           <ContactShadows position={[0, -2.5, 0]} opacity={0.5} scale={10} blur={2} far={4} />
         </Canvas>
+        <p style={{ textAlign: 'center', marginTop: '10px', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+          🖱️ Click the phone to toggle sound
+        </p>
       </motion.div>
     </section>
   );
