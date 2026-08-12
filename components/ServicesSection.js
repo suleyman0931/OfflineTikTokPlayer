@@ -51,21 +51,21 @@ export default function ServicesSection() {
           style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', padding: '40px', alignItems: 'center', justifyContent: 'center' }}
         >
           <img 
-            src="/suleyman_placeholder.png" 
-            alt="Suleyman" 
+            src="/img_pfpuooh0.png" 
+            alt="Suleyman Abdu" 
             style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--accent-primary)' }}
           />
           <div style={{ textAlign: 'left' }}>
             <h3 style={{ fontSize: '2rem', marginBottom: '8px' }}>Suleyman Abdu</h3>
             <p className="text-muted" style={{ marginBottom: '20px' }}>Lead Developer</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <a href="mailto:your.email@example.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
+              <a href="mailto:suleymanabdu0931@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
                 <Mail size={20} color="var(--accent-secondary)" />
-                <span>your.email@example.com</span>
+                <span>suleymanabdu0931@gmail.com</span>
               </a>
-              <a href="tel:+1234567890" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
+              <a href="tel:0931798929" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
                 <Phone size={20} color="var(--accent-secondary)" />
-                <span>+1 (234) 567-890</span>
+                <span>0931798929</span>
               </a>
             </div>
           </div>
