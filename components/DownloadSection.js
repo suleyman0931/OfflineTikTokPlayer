@@ -7,40 +7,46 @@ import { Download, ShieldCheck, Zap } from 'lucide-react';
 export default function DownloadSection() {
   return (
     <section id="download" className="download-section">
-      <motion.h2 
-        className="download-title"
-        initial={{ opacity: 0, y: 30 }}
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Ready to go <span className="text-glow-primary" style={{ color: 'var(--accent-primary)' }}>Offline?</span>
+        Ready to go <span className="accent">offline?</span>
       </motion.h2>
-      
-      <motion.div 
+      <p className="section-lead">
+        Grab the latest Android build and keep watching even when the signal drops.
+      </p>
+
+      <motion.div
         className="download-box glass"
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.1 }}
       >
-        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)' }}>
-            <ShieldCheck size={20} color="var(--accent-secondary)" />
-            <span>Secure APK</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)' }}>
-            <Zap size={20} color="var(--accent-primary)" />
-            <span>Fast Download</span>
-          </div>
+        <div className="download-pills">
+          <span className="pill">
+            <ShieldCheck size={18} />
+            Secure APK
+          </span>
+          <span className="pill">
+            <Zap size={18} />
+            Fast download
+          </span>
         </div>
 
-        <p style={{ fontSize: '1.2rem', maxWidth: '400px', lineHeight: '1.6' }}>
-          Get the latest version of the Offline TikTok Player for Android.
+        <p className="download-copy">
+          Latest version of Offline TikTok Player for Android.
         </p>
 
-        {/* Note: Update the href below when the actual APK is available */}
-        <a href="/Offline%20TikTok%20Player.apk" download className="btn btn-primary" style={{ width: '100%', padding: '20px' }}>
-          <Download size={28} />
+        <a
+          href="/Offline%20TikTok%20Player.apk"
+          download
+          className="btn btn-primary btn-block"
+        >
+          <Download size={22} />
           Download APK
         </a>
       </motion.div>

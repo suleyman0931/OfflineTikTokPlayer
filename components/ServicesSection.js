@@ -4,70 +4,78 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Monitor, Smartphone, Globe, Mail, Phone } from 'lucide-react';
 
+const services = [
+  {
+    icon: Smartphone,
+    title: 'Mobile apps',
+    desc: 'Native and cross-platform apps for iOS and Android.',
+  },
+  {
+    icon: Globe,
+    title: 'Websites',
+    desc: 'Responsive, fast landing pages and marketing sites.',
+  },
+  {
+    icon: Monitor,
+    title: 'Desktop software',
+    desc: 'Windows, macOS, and Linux apps built for real work.',
+  },
+  {
+    icon: Code,
+    title: 'Web applications',
+    desc: 'Scalable, dynamic products that grow with you.',
+  },
+];
+
 export default function ServicesSection() {
   return (
-    <section className="services-section" style={{ padding: '100px 5%', position: 'relative' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+    <section id="services" className="services-section">
+      <div className="section-inner">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '60px' }}
+          className="section-intro"
         >
-          <h2 style={{ fontSize: '3rem', marginBottom: '16px' }}>Need a Custom App?</h2>
-          <p className="text-muted" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-            We provide professional development services to bring your ideas to life.
+          <h2 className="section-title">Need a custom app?</h2>
+          <p className="section-lead">
+            Professional development to take an idea from sketch to shipping.
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '80px' }}>
-          <div className="feature-card glass">
-            <Smartphone className="feature-icon" />
-            <h3 className="feature-title">Mobile App Development</h3>
-            <p className="feature-desc">Native and cross-platform apps for iOS and Android.</p>
-          </div>
-          <div className="feature-card glass">
-            <Globe className="feature-icon" />
-            <h3 className="feature-title">Website Development</h3>
-            <p className="feature-desc">Beautiful, responsive, and SEO-optimized landing pages and websites.</p>
-          </div>
-          <div className="feature-card glass">
-            <Monitor className="feature-icon" />
-            <h3 className="feature-title">Desktop Applications</h3>
-            <p className="feature-desc">Powerful desktop software for Windows, macOS, and Linux.</p>
-          </div>
-          <div className="feature-card glass">
-            <Code className="feature-icon" />
-            <h3 className="feature-title">Web App Development</h3>
-            <p className="feature-desc">Complex, scalable, and dynamic web applications.</p>
-          </div>
+        <div className="services-grid">
+          {services.map(({ icon: Icon, title, desc }) => (
+            <article key={title} className="feature-card glass">
+              <Icon className="feature-icon" aria-hidden="true" />
+              <h3 className="feature-title">{title}</h3>
+              <p className="feature-desc">{desc}</p>
+            </article>
+          ))}
         </div>
 
-        <motion.div 
-          className="glass"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        <motion.div
+          id="contact"
+          className="contact-card glass"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', padding: '40px', alignItems: 'center', justifyContent: 'center' }}
         >
-          <img 
-            src="/img_pfpuooh0.png" 
-            alt="Suleyman Abdu" 
-            style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '4px solid var(--accent-primary)' }}
+          <img
+            src="/img_pfpuooh0.png"
+            alt="Suleyman Abdu"
+            className="contact-photo"
           />
-          <div style={{ textAlign: 'left' }}>
-            <h3 style={{ fontSize: '2rem', marginBottom: '8px' }}>Suleyman Abdu</h3>
-            <p className="text-muted" style={{ marginBottom: '20px' }}>Lead Developer</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <a href="mailto:suleymanabdu0931@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
-                <Mail size={20} color="var(--accent-secondary)" />
-                <span>suleymanabdu0931@gmail.com</span>
-              </a>
-              <a href="tel:0931798929" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', textDecoration: 'none' }}>
-                <Phone size={20} color="var(--accent-secondary)" />
-                <span>0931798929</span>
-              </a>
-            </div>
+          <div className="contact-copy">
+            <h3>Suleyman Abdu</h3>
+            <p className="contact-role">Lead Developer</p>
+            <a href="mailto:suleymanabdu0931@gmail.com" className="contact-link">
+              <Mail size={18} />
+              suleymanabdu0931@gmail.com
+            </a>
+            <a href="tel:+251931798929" className="contact-link">
+              <Phone size={18} />
+              0931 798 929
+            </a>
           </div>
         </motion.div>
       </div>
